@@ -1,0 +1,175 @@
+/* Lifetree's own design system, as the app states it in Theme.swift:
+   one warm gold accent (this year's leaf), serif (New York) for display,
+   the system sans for text, capsule actions and radius-28 cards.
+   Dark mode is the app's night sky (its launch background). */
+
+:root {
+  --bg: #f7f4ec;
+  --surface: #ffffff;
+  --text: #171b2b;
+  --muted: #596073;
+  --rule: #e2ddd0;
+  --link: #85570a;
+  --gold: #f4c87a;
+  --on-gold: #171b2b;
+  --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1224;
+    --surface: #161c33;
+    --text: #e9ecf4;
+    --muted: #a4abbf;
+    --rule: #283152;
+    --link: #f4c87a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 var(--sans);
+}
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 600px) {
+  .wrap { padding: 0 24px; }
+}
+
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Masthead: the icon, the name, and the way to the other language. */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0 8px;
+}
+.masthead img {
+  width: 48px;
+  height: 48px;
+  border-radius: 22.5%;
+}
+.masthead .name {
+  margin: 0;
+  font: 600 1.25rem/1 var(--serif);
+  color: var(--text);
+  text-decoration: none;
+}
+.lang {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  font-size: 0.875rem;
+}
+.lang a {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lang a:hover { border-color: var(--link); }
+
+h1, h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 7vw, 2.75rem); margin: 32px 0 12px; }
+h2 { font-size: 1.5rem; margin: 40px 0 12px; }
+h3 { font-size: 1.0625rem; margin: 24px 0 4px; }
+
+.lede { font-size: 1.125rem; color: var(--muted); margin-top: 0; }
+.meta { color: var(--muted); font-size: 0.9375rem; margin-top: 0; }
+
+figure { margin: 24px 0 0; }
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+figcaption { color: var(--muted); font-size: 0.875rem; margin-top: 8px; }
+
+/* The one card on a page: how to reach a person, or the policy in one line. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 28px;
+  padding: 20px 24px;
+  margin: 32px 0;
+}
+.card h2 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--on-gold);
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.button:hover { filter: brightness(1.05); }
+
+/* Help: each question opens in place. */
+details {
+  border-top: 1px solid var(--rule);
+  padding: 14px 0;
+}
+details:last-of-type { border-bottom: 1px solid var(--rule); }
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  color: var(--muted);
+  font-weight: 400;
+}
+details[open] summary::after { content: "−"; }
+details p { margin: 8px 0 0; }
+
+ul { padding-left: 1.25rem; }
+li + li { margin-top: 6px; }
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 56px 0 0;
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding: 40px 0 48px;
+}
+footer a { color: inherit; }
