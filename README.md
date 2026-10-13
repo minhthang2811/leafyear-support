@@ -23,7 +23,7 @@ Without JavaScript both halves show, one after the other.
 - **Privacy policy** (`privacy/index.html`): the policy at a glance, then sixteen
   numbered sections with a table of contents. It covers what Guideline 5.1.1(i) asks
   for (what is collected and how it is used, third parties, retention and deletion, and
-  withdrawing consent) and 5.1.3 for Apple Health.
+  withdrawing consent).
 
 ## Files
 
@@ -82,6 +82,7 @@ The app was called Lifetree until September 2026, and this repository
 `/lifetree-support/` addresses no longer serve these pages.
 
 The policy was rewritten on 8 October 2026 for the journal (iCloud, Apple Health,
-weather where you are, photos and Face ID). The first version, from 26 September 2026,
+weather where you are, photos and Face ID). On 14 October 2026 Apple Health came out
+of it, as Leafyear 1.0 no longer offers it (App Review, Guideline 2.5.1). The first version, from 26 September 2026,
 said the app never connected to the internet, which stopped being true once the journal
 synced through iCloud.
